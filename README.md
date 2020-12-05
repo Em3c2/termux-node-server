@@ -1,4 +1,13 @@
-# termux-node-server
-Server to share a local web for schools
+# Termux-node-server 
+## For offline sharing files
 
-This proyect is for creating a simple server in node that will serve a simple webpage to share files between teacher and students in a offline enviroment.
+Server to share a local web in schools
+
+### This proyect was coded in Termux + node + git + vim in an android smartphone 
+
+### My objectives are:
+
+- Create a simple server in node only with vim and my phone
+- Create a simple and light web
+- The web will can share files
+
