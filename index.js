@@ -6,8 +6,13 @@ const path = require('path')
 
 morgan('tiny')
 
+app.set('view engine', 'ejs');
+
 app.get('/',(req,res) => {
-	res.sendFile(path.join(__dirname+'/views/index.html'));
+	res.render('index', {
+		file_1: 'Alicia en el pais de las maravillas',
+		file_2: 'En el corazom de las tinieblas'
+	});
 })
 
 app.listen(port, () => {
