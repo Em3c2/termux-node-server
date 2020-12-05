@@ -11,8 +11,7 @@ app.set('view engine', 'ejs');
 
 app.get('/',(req,res) => {
 	res.render('index', {
-		file_1: 'Alicia en el pais de las maravillas',
-		file_2: 'En el corazom de las tinieblas'
+		file_1: 'Poema Guarani',
 	});
 })
 
