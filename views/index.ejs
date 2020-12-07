@@ -6,35 +6,89 @@
 	<title></title>
 	<style> 
 		
-		nav {
-		  color: white;
-		  background-color: tomato;
+		* {
+		  padding: 0;
+		  margin: 0;
+		  font-family: consolas;
 		}
-		td {
+		.grid {
+          display: grid;
+		  grid-template-columns: 1fr minmax(300px, 80%) 1fr;
+		  grid-template-rows: minmax(60px,1fr) 1fr auto;
+		}
+		nav {
+		  display: grid;
+		  color: white;
+		  grid-column: 1/4;
+		  grid-row: 1/2;
+		  background-color: #c55;
+		  align-content: center;
+		 }
+		h1{
+			margin: 0 0 0 30px;
+			vertical-align: middle;
+			font-size: 30px;
+		  	font-family: Helvetica, sans-serif
+		}
+		.wrapper {
+	  	  grid-column: 2/3;
+		  grid-row: 3/4;
+		  place-self:  center;
+		}
+		th {
+			font-weight: bold;
+			color: white;
+			background-color: #c55;
+			font-size: 23px;
+		}
+		tr:nth-of-type(odd) {
+			background-color: #fdd;
+		}
+		th, td {
 		  text-align: center;
 		  vertical-align: middle;
-		  border: 1px solid black;
+		  max-width: 50vw;
+		  border-radius: 10px;
+		  padding: 10px;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
 		}
-
+		td {
+			font-size: 20px;
+		}
+		@media (max-width: 600px) {
+			th, td {
+				overflow: hidden;
+			}
+		}
+		svg {
+			height: 50px;
+			width: 50px;
+		}
 	</style>
 </head>
 <body>
-	<nav><h1>Temix-biblio</h1></nav>
-		<div>
-			<table style="width:100%">
+	<div class="grid">
+	<nav><h1><%=content.title%></h1></nav>
+		<div class="wrapper">
+			<table>
   				<tr>
-  			 		<th>Filename</th>
-    					<th>Download</th>
+  			 		<th><%=content.col1%></th>
+    				<th><%=content.col2%></th>
   				</tr>
+				<%for (var file in files){%>
   				<tr>
-	  				<td><%= file_1 %></td>
-    					<td><a href="/download">download</a></td>
+					<td><%=files[file].name%></td>
+					<td><a href="<%=files[file].link%>" ><svg width="165" height="165" viewBox="0 0 165 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="82.5" cy="82.5" r="82.5" fill="#29CB6A"/>
+<rect x="68.0282" y="32" width="28.8451" height="51.4215" fill="#FFE7E7"/>
+<path d="M82.4507 114.612L55.1282 81.7355H109.773L82.4507 114.612Z" fill="#FFE7E7"/>
+<rect x="50" y="123.041" width="64" height="10.9587" fill="#FFE7E7"/>
+</svg></a></td>
   				</tr>
-  				<tr>
-    					<td></td>
-    					<td></td>
-  				</tr>
+				<%}%>
 			</table>
 		</div>
+	</div>
 </body>
 </html>
